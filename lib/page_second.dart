@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_exposure_listener/gm_exposure_listener.dart';
 
+///
+/// 普通 列表组件的使用 支持横向跟 竖向的滚动
+///
+/// listview   gridview
+/// 如下是使用的事例了  listview的使用
+///
 class SecondPage extends StatefulWidget {
   @override
   _SecondPageState createState() => _SecondPageState();
@@ -8,6 +14,9 @@ class SecondPage extends StatefulWidget {
 
 class _SecondPageState extends State<SecondPage> {
   ScrollController _scrollController = ScrollController();
+
+  int indexFirst;
+  int indexLast;
 
   @override
   void initState() {
@@ -33,8 +42,8 @@ class _SecondPageState extends State<SecondPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Text("第一个可见的"),
-                  Text("最后一个可见的"),
+                  Text("第一个可见的$indexFirst"),
+                  Text("最后一个可见的$indexLast"),
                 ],
               ),
             ),
@@ -49,7 +58,7 @@ class _SecondPageState extends State<SecondPage> {
                         padding: EdgeInsets.only(top: 10),
                         child: Container(
                           alignment: Alignment.center,
-                          height: 150,
+                          height: 100,
                           width: MediaQuery.of(context).size.width,
                           color: Colors.blue,
                           child: Text("这是第一个$index"),
@@ -59,8 +68,11 @@ class _SecondPageState extends State<SecondPage> {
                     itemCount: 20,
                   ),
                   callBack: (first, last, scrotic) {
+                    indexFirst = first;
+                    indexLast = last;
                     print("这是第一个可见的$first");
                     print("这是最后一个可见的$last");
+                    setState(() {});
                   },
                   scroll: Axis.vertical,
                 ))

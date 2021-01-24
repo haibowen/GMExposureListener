@@ -3,6 +3,12 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_exposure_listener/gm_exposure_listener.dart';
 
+///
+/// 特殊 列表组件的使用 支持横向跟 竖向的滚动
+///
+/// CustomScrollView  sliver类型的组件
+/// 如下是使用的事例了
+///
 class ThirdPage extends StatefulWidget {
   @override
   _ThirdPageState createState() => _ThirdPageState();

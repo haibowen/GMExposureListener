@@ -97,7 +97,10 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme
+                  .of(context)
+                  .textTheme
+                  .headline4,
             ),
             InkWell(
               child: Container(
@@ -114,21 +117,26 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               },
             ),
-            InkWell(
-              child: Container(
-                alignment: Alignment.center,
-                height: 100,
-                width: 300,
-                color: Colors.blue,
-                child: Text("跳转"),
-              ),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  new MaterialPageRoute(builder: (context) => new ThirdPage()),
-                );
-              },
-            ),
+            Padding(padding: EdgeInsets.only(top: 10),
+                child: InkWell(
+                  child: Container(
+                    alignment: Alignment.center,
+                    height: 100,
+                    width: 300,
+                    color: Colors.blue,
+                    child: Text("跳转"),
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      new MaterialPageRoute(
+                          builder: (context) => new ThirdPage()),
+                    );
+                  },
+                ) ,
+
+            )
+
           ],
         ),
 
