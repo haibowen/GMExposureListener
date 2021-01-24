@@ -6,8 +6,8 @@ GmExposureListener(
     child:child //孩子节点 widget
     scroll: Axis.vertical,//滑动的方向
     callBack:（first,last,ScrollNotification scrollNotification）{
-    print("第一个可见的元素")
-    print（“第二个可见的元素"）
+    print("第一个可见的元素$first")
+    print（“最后一个可见的元素$last"）
     }
 )
 ~~~
