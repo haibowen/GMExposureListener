@@ -7,6 +7,18 @@ class SecondPage extends StatefulWidget {
 }
 
 class _SecondPageState extends State<SecondPage> {
+  ScrollController _scrollController = ScrollController();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      _scrollController.position.didEndScroll();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,6 +42,7 @@ class _SecondPageState extends State<SecondPage> {
                 height: 500,
                 child: GmExposureListener(
                   child: ListView.builder(
+                    controller: _scrollController,
                     scrollDirection: Axis.vertical,
                     itemBuilder: (BuildContext context, int index) {
                       return Padding(

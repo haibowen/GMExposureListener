@@ -52,7 +52,6 @@ class GmExposureListener extends StatelessWidget {
                     scrollNotification.metrics.viewportDimension)) {
           ///计算 头部的索引值
           firstIndex = min(firstIndex, oldParentData.index);
-
           ///计算 尾部的索引值
           endIndex = max(endIndex, oldParentData.index);
         }

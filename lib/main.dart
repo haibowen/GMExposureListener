@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_exposure_listener/page_second.dart';
+import 'package:flutter_exposure_listener/page_third.dart';
 
 void main() => runApp(MyApp());
 
@@ -112,7 +113,22 @@ class _MyHomePageState extends State<MyHomePage> {
                   new MaterialPageRoute(builder: (context) => new SecondPage()),
                 );
               },
-            )
+            ),
+            InkWell(
+              child: Container(
+                alignment: Alignment.center,
+                height: 100,
+                width: 300,
+                color: Colors.blue,
+                child: Text("跳转"),
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  new MaterialPageRoute(builder: (context) => new ThirdPage()),
+                );
+              },
+            ),
           ],
         ),
 
