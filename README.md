@@ -1,11 +1,3 @@
-# flutter_exposure_listener
-
-A new Flutter module.
-
-## Getting Started
-
-For help getting started with Flutter, view our online
-[documentation](https://flutter.dev/).
 ## 一个flutter列表中针对曝光埋点进行处理的工具Widget
 ## 使用方法如下所示
 
@@ -21,7 +13,7 @@ GmExposureListener(
 ~~~
 ## 首次进入页面的默认值
 对于flutter中的滑动事件一般都是由ScrollNotification 来驱动的，这就会导致第一次进入页面的时候，没有滑动驱动，就没有曝光数据
-因此我们需要在页面构建的初始化的声明周期里手动调用一下触发滑动的事件
+因此我们需要在页面构建的初始化的生命周期里手动调用一下触发滑动的事件
 ~~~
  @override
   void initState() {
@@ -30,5 +22,5 @@ GmExposureListener(
       widget.scrollController.position.didEndScroll();
     });
   }
-  ~~~
+ ~~~
 
