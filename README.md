@@ -25,4 +25,4 @@ GmExposureListener(
  ~~~
  ## 待优化的点
  目前列表中的曝光坑位中的item只要有被遮挡就不再曝光，需要继续优化,计算item显示的比例 来确定item到底要不要曝光
-
+### 可以参看项目中 page_second 和 page_third 的使用事例
