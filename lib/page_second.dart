@@ -26,34 +26,31 @@ class _SecondPageState extends State<SecondPage> {
                 ],
               ),
             ),
-
-
             Container(
-              height: 500,
-              child:GmExposureListener(
-                child: ListView.builder(
-                  itemBuilder: (BuildContext context, int index) {
-                    return Padding(
-                      padding: EdgeInsets.only(top: 10),
-                      child: Container(
-                        alignment: Alignment.center,
-                        height: 150,
-                        width: MediaQuery.of(context).size.width,
-                        color: Colors.blue,
-                        child: Text("这是第一个$index"),
-                      ),
-                    );
+                height: 500,
+                child: GmExposureListener(
+                  child: ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Padding(
+                        padding: EdgeInsets.only(top: 10),
+                        child: Container(
+                          alignment: Alignment.center,
+                          height: 150,
+                          width: MediaQuery.of(context).size.width,
+                          color: Colors.blue,
+                          child: Text("这是第一个$index"),
+                        ),
+                      );
+                    },
+                    itemCount: 20,
+                  ),
+                  callBack: (first, last, scrotic) {
+                    print("这是第一个可见的$first");
+                    print("这是最后一个可见的$last");
                   },
-                  itemCount: 20,
-
-                ) ,
-                callBack: (first,last,scrotic){
-                  print ("这是第一个可见的$first");
-                  print("这是最后一个可见的$last");
-                },
-              )
-
-            )
+                  scroll: Axis.vertical,
+                ))
           ],
         ));
   }
