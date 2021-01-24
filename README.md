@@ -6,3 +6,29 @@ A new Flutter module.
 
 For help getting started with Flutter, view our online
 [documentation](https://flutter.dev/).
+## 一个flutter列表中针对曝光埋点进行处理的工具Widget
+## 使用方法如下所示
+
+~~~
+GmExposureListener(
+    child:child //孩子节点 widget
+    scroll: Axis.vertical,//滑动的方向
+    callBack:（first,last,ScrollNotification scrollNotification）{
+    print("第一个可见的元素")
+    print（“第二个可见的元素"）
+    }
+)
+~~~
+## 首次进入页面的默认值
+对于flutter中的滑动事件一般都是由ScrollNotification 来驱动的，这就会导致第一次进入页面的时候，没有滑动驱动，就没有曝光数据
+因此我们需要在页面构建的初始化的声明周期里手动调用一下触发滑动的事件
+~~~
+ @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      widget.scrollController.position.didEndScroll();
+    });
+  }
+  ~~~
+
